@@ -6,17 +6,10 @@ const db = require("quick.db");
 client.on("ready", () => {
   console.log(`Booted Up!`);
   
-  var activities = [
-        "!global",
-        "global chats!",
-        "JavaScript",
-        "Global Servers!"
-    ]
- 
-    const index = Math.floor(Math.random() * activities.length + 1)
-    setInterval(() => {
-        bot.user.setActivity(activities[index]);
-    }, 10000);
+  // Set the client user's activity
+client.user.setActivity('!global', { type: 'WATCHING' })
+  .then(presence => console.log(`Activity set to ${presence.activities[0].name}`))
+  .catch(console.error);
   
 });
 
