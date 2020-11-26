@@ -5,6 +5,12 @@ const db = require("quick.db");
 
 client.on("ready", () => {
   console.log(`Booted Up!`);
+  
+  // Set the client user's activity
+client.user.setActivity('!global', { type: 'WATCHING' })
+  .then(presence => console.log(`Activity set to ${presence.activities[0].name}`))
+  .catch(console.error);
+  
 });
 
 client.on("message", async message => {
